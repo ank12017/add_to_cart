@@ -1,3 +1,6 @@
 <div class="shopping-cart">
   <%= render "shopping_cart" %>
+  <%= render 'layouts/cart_continue' %>
+  <%= render 'layouts/place_order' %>
+  <%= link_to "Place Order", orders_path(order: current_order), class: "btn btn-link", :method => "get" %>
 </div>

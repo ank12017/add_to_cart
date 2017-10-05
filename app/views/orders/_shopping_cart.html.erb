@@ -1,0 +1,4 @@
+ <% orders.each do |order| %>
+    <%= render 'carts/cart_row', product: order.product, order: order, show_total: true %>
+ 
+<% end %>

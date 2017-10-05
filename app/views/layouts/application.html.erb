@@ -13,19 +13,57 @@
     <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
   <% end %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+    .background-color{
+      color: black;
+    }
+    </style>
   </head>
+  
 
   <body>
+  <header>
+     <nav class="navbar navbar " style="background-color: #06305f;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Shopping_App</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><h1><%= link_to "My Store", root_path %></h1></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" >
+     <% if user_signed_in? %> 
+       <listyle style="color: black;">Logged in as <strong><%= current_user.email %></strong></li>
+                 <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> <span class="glyphicon glyphicon-user"></span> </li>|
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %><span class="glyphicon glyphicon-log-out"></span> </li>
+            <% else %>
+       
+              <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %><span class="glyphicon glyphicon-user"></span> </li>|
+                <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %><span class="glyphicon glyphicon-log-in"></span></li>
+            <% end %>
+    </ul>
+  </div>
+</nav> 
+</header>
+
   <div class="container">
     <div class="row">
       <div class="col-xs-6">
-        <h1><%= link_to "My Store", root_path %></h1>
+        
       </div>
       <div class="col-xs-6 text-right">
         <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
       </div>
     </div>
+
+    <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+
     <%= yield %>
+    <footer></footer>
     </div>
   </body>
 </html>

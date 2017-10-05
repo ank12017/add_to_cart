@@ -2,6 +2,7 @@ class Order < ApplicationRecord
 belongs_to :order_status, optional: true
   has_many :order_items
   before_create :set_order_status
+  has_many :products
   before_save :update_subtotal
 
   def subtotal
