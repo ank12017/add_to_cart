@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ShoppingApp</title>
+    <title>Shopping App</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -17,6 +17,7 @@
     .background-color{
       color: black;
     }
+    
     </style>
   </head>
   
@@ -26,12 +27,12 @@
      <nav class="navbar navbar " style="background-color: #06305f;">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Shopping_App</a>
+      <a class="navbar-brand" href="#">Shopping App</a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><h1><%= link_to "My Store", root_path %></h1></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
+      <li><%= link_to "#{current_order.order_items.size} My Cart", cart_path %></li>
+      <li><%= link_to "New Product", new_product_path %></li>
     </ul>
     <ul class="nav navbar-nav navbar-right" >
      <% if user_signed_in? %> 

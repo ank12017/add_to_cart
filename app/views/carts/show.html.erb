@@ -1,6 +1,8 @@
+<h1>My Cart</h1>
 <div class="shopping-cart">
   <%= render "shopping_cart" %>
-  <%= render 'layouts/cart_continue' %>
-  <%= render 'layouts/place_order' %>
-  <%= link_to "Place Order", orders_path(order: current_order), class: "btn btn-link", :method => "get" %>
+  <%= link_to "Shopping Continue", products_path, class: "btn btn-link", class: "btn btn-danger" %>
+  
+  
+  <%= link_to "Place Order", orders_path(order: current_order), class: "btn btn-link", :method => "get", class: "btn btn-primary" %>
 </div>

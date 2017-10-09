@@ -20,6 +20,12 @@ class OrdersController < ApplicationController
       	   render 'new'
       end
     end
+    def destroy
+      @order =Order.find(params[:id])
+        @order.destroy
+         redirect_to orders_path
+    end
+
     private
       def order_params
              params.require(:order).permit(:subtotal, :tax, :shipping, :total)
